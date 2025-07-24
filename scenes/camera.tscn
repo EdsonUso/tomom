@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxttejet2mesc"]
+
+[ext_resource type="Script" uid="uid://ettvn04tfsln" path="res://src/camera.gd" id="1_cvpoc"]
+
+[node name="Camera" type="Camera2D"]
+script = ExtResource("1_cvpoc")
+smoothing = 0.676
