@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 @export_group("Movement")
 @export var speed: float = 300.0
 
@@ -21,8 +23,19 @@ var was_moving: bool = false
 
 @onready var collision:CollisionShape2D = $Colisor
 
+
+@export_group("Grab & Drop")
+var item_in_reach: Area2D = null
+var carried_item: AreaItem = null
+
+@onready var interaction_area:Area2D = $interaction_area
+
+
 func _ready() -> void:
 	await get_tree().process_frame #Espera para garantir que o shape foi inicializado
+
+	interaction_area.area_entered.connect(_on_interaction_area_entered)
+	interaction_area.area_exited.connect(_on_interaction_area_exited)
 
 	if collision and collision.shape:
 		var half_height = collision.shape.get_rect().size.y / 2.0
@@ -30,6 +43,18 @@ func _ready() -> void:
 		print("Posição do emissor de poeira ajustada para: ", dust_particles.position)
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interagir"):
+		if not carried_item and is_instance_valid(item_in_reach):
+			#Pegar item
+			carried_item = item_in_reach
+			item_in_reach = null
+
+			carried_item.reparent(self)
+			carried_item.get_node("Colisor").disabled = true
+			carried_item.position = Vector2(0, -40) #Posição acima da cabeça 
+
+			print("Item capturado: ", carried_item.item_id)
 
 
 func _physics_process(delta: float) -> void:
@@ -70,8 +95,23 @@ func apply_juice_effects(input_dir: Vector2) -> void:
 
 		sprite.scale = sprite.scale.lerp(target_scale, 0.1)
 
+#region SINAIS
 func emit_dust_particles() -> void:
 	if velocity.length() > 0:
 		dust_particles.rotation = velocity.angle() - PI
 
 		dust_particles.emitting = true
+
+func _on_interaction_area_entered(area: AreaItem) -> void:
+	print("Interagindo")
+	if area.is_in_group("coletaveis"):
+		item_in_reach = area
+		print("Item ao alcance: ", area.item_id)
+
+
+func _on_interaction_area_exited(area: AreaItem) -> void:
+	if area == item_in_reach:
+		item_in_reach = null
+		print("Item fora de alcance")
+
+#endregion

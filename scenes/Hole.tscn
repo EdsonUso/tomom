@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba3u0drgnlrqu"]
+
+[ext_resource type="Script" uid="uid://c0f4tk75uijwy" path="res://src/area_hole.gd" id="1_vabtr"]
+[ext_resource type="Texture2D" uid="uid://bbpuykvydq6v6" path="res://icon.svg" id="2_ns3kb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fbirb"]
+radius = 61.0082
+
+[node name="Hole" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_vabtr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fbirb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.0980392, 0.145098, 1, 1)
+rotation = -0.879646
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_ns3kb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

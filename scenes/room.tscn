@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://bdnu702oskctc"]
+[gd_scene load_steps=8 format=4 uid="uid://bdnu702oskctc"]
 
 [ext_resource type="Texture2D" uid="uid://bbpuykvydq6v6" path="res://icon.svg" id="1_ffxv4"]
 [ext_resource type="PackedScene" uid="uid://nwxlgmmx347x" path="res://scenes/player_testtscn.tscn" id="2_85yof"]
+[ext_resource type="PackedScene" uid="uid://ba3u0drgnlrqu" path="res://scenes/Hole.tscn" id="3_jxe34"]
+[ext_resource type="PackedScene" uid="uid://h8c67hl00bin" path="res://scenes/item.tscn" id="4_jn645"]
+[ext_resource type="PackedScene" uid="uid://cbn0qmo5psm6a" path="res://scenes/Cutscene.tscn" id="5_qvc4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_14vil"]
 resource_name = "floor"
@@ -85,3 +88,13 @@ position = Vector2(145, 86)
 speed = 1000.0
 friction = 1.0
 acceleration = 0.311
+
+[node name="Hole" parent="." instance=ExtResource("3_jxe34")]
+position = Vector2(661, 55)
+
+[node name="Item" parent="." instance=ExtResource("4_jn645")]
+position = Vector2(-105, 264)
+
+[node name="CutsceneManager" parent="." instance=ExtResource("5_qvc4m")]
+
+[connection signal="item_delivered" from="Hole" to="CutsceneManager" method="start_cutscene"]
