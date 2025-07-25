@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://75pr6dyxsqkt"]
 
-[ext_resource type="Script" path="res://src/area_hole.gd" id="1_vabtr"]
+[ext_resource type="Script" uid="uid://c0f4tk75uijwy" path="res://src/area_hole.gd" id="1_vabtr"]
 [ext_resource type="Texture2D" uid="uid://cl140ttw7bry8" path="res://assets/Items/reliquias-Sheet.png" id="2_kanp7"]
 [ext_resource type="AudioStream" uid="uid://b02dwseaic20i" path="res://assets/audio/sound5.wav" id="3_kanp7"]
 

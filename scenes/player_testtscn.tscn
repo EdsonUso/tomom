@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://bcu2ct4js5kii"]
+[gd_scene load_steps=20 format=3 uid="uid://bcu2ct4js5kii"]
 
-[ext_resource type="Script" path="res://src/player_movement.gd" id="1_70asp"]
+[ext_resource type="Script" uid="uid://cmyddl4c7qitv" path="res://src/player_movement.gd" id="1_70asp"]
 [ext_resource type="Texture2D" uid="uid://cqu0qmdu201ur" path="res://assets/Player/CARLA-Sheet.png" id="2_617f4"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://s30eelyl46w2" path="res://resources/new_animation_node_state_machine.tres" id="3_gpfak"]
 [ext_resource type="PackedScene" path="res://scenes/camera.tscn" id="3_w4ket"]
 [ext_resource type="Texture2D" uid="uid://bm0jtinikpipr" path="res://particles/particula.png" id="4_617f4"]
 [ext_resource type="Material" uid="uid://fx12d0rsaocr" path="res://particles/dust_on_walk.tres" id="4_nlxoa"]
@@ -189,6 +190,7 @@ size = Vector2(29, 26)
 collision_mask = 15
 script = ExtResource("1_70asp")
 speed = 100.0
+enable_rotation_juice = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_617f4")
@@ -199,6 +201,12 @@ frame = 8
 libraries = {
 &"": SubResource("AnimationLibrary_yr2sd")
 }
+
+[node name="player-tree" type="AnimationTree" parent="Sprite2D"]
+tree_root = ExtResource("3_gpfak")
+anim_player = NodePath("../AnimationPlayer")
+parameters/movendo/blend_position = Vector2(-0.111643, 0.376923)
+"parameters/´parado/blend_position" = Vector2(-1.39553, 0.207692)
 
 [node name="Colisor" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.5)

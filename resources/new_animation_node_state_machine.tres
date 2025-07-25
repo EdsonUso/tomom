@@ -1,0 +1,52 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=11 format=3 uid="uid://s30eelyl46w2"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b015f"]
+animation = &"walk_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2umkh"]
+animation = &"walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6ush7"]
+animation = &"walk_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3o7yu"]
+animation = &"walk_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_3mpnw"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_b015f")
+blend_point_0/pos = Vector2(0, -1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_2umkh")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_6ush7")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_3o7yu")
+blend_point_3/pos = Vector2(1, 0)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3ycio"]
+animation = &"idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a1amd"]
+animation = &"idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cqark"]
+animation = &"idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_435ra"]
+animation = &"idle_down"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_toduc"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_3ycio")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_a1amd")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_cqark")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_435ra")
+blend_point_3/pos = Vector2(0, 1)
+
+[resource]
+states/Start/position = Vector2(257, 116)
+states/movendo/node = SubResource("AnimationNodeBlendSpace2D_3mpnw")
+states/movendo/position = Vector2(622, 109)
+"states/´parado/node" = SubResource("AnimationNodeBlendSpace2D_toduc")
+"states/´parado/position" = Vector2(441, 116)

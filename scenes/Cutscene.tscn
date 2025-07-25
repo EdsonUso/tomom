@@ -123,7 +123,6 @@ _data = {
 }
 
 [node name="CutsceneManager" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_g23k1")
 
 [node name="Panel" type="Panel" parent="."]
