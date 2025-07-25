@@ -1,24 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba3u0drgnlrqu"]
+[gd_scene load_steps=5 format=3 uid="uid://75pr6dyxsqkt"]
 
-[ext_resource type="Script" uid="uid://c0f4tk75uijwy" path="res://src/area_hole.gd" id="1_vabtr"]
-[ext_resource type="Texture2D" uid="uid://bbpuykvydq6v6" path="res://icon.svg" id="2_ns3kb"]
+[ext_resource type="Script" path="res://src/area_hole.gd" id="1_vabtr"]
+[ext_resource type="Texture2D" uid="uid://cl140ttw7bry8" path="res://assets/Items/reliquias-Sheet.png" id="2_kanp7"]
 [ext_resource type="AudioStream" uid="uid://b02dwseaic20i" path="res://assets/audio/sound5.wav" id="3_kanp7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fbirb"]
-radius = 61.0082
+radius = 8.06226
 
 [node name="Hole" type="Area2D"]
 collision_layer = 8
 script = ExtResource("1_vabtr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_fbirb")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.0980392, 0.145098, 1, 1)
+position = Vector2(2, 1)
 rotation = -0.879646
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_ns3kb")
+texture = ExtResource("2_kanp7")
+hframes = 31
+frame = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fbirb")
 
 [node name="PlacementSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_kanp7")
