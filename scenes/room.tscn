@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdnu702oskctc"]
+[gd_scene load_steps=12 format=3 uid="uid://bdnu702oskctc"]
 
 [ext_resource type="PackedScene" uid="uid://nwxlgmmx347x" path="res://scenes/player_testtscn.tscn" id="2_85yof"]
 [ext_resource type="PackedScene" uid="uid://ba3u0drgnlrqu" path="res://scenes/Hole.tscn" id="3_jxe34"]
@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://ch62ajwdx7sv3" path="res://scenes/hole_animais.tscn" id="5_jxe34"]
 [ext_resource type="PackedScene" uid="uid://cbn0qmo5psm6a" path="res://scenes/Cutscene.tscn" id="5_qvc4m"]
 [ext_resource type="PackedScene" uid="uid://da5n03856xl1a" path="res://scenes/icone_animal.tscn" id="6_jn645"]
+[ext_resource type="PackedScene" uid="uid://hlv36q1qk8ri" path="res://scenes/presure_plate.tscn" id="7_7dqbv"]
+[ext_resource type="PackedScene" uid="uid://2msfnfj1exd8" path="res://scenes/Door.tscn" id="8_ybpoa"]
+[ext_resource type="PackedScene" uid="uid://dx65155fda6dp" path="res://scenes/moveable_button.tscn" id="9_ybpoa"]
+[ext_resource type="PackedScene" uid="uid://bmo0x1kdjuuo7" path="res://wire.tscn" id="10_eom3m"]
+[ext_resource type="PackedScene" uid="uid://dr77l6ekow1ko" path="res://scenes/wire_roll.tscn" id="11_tk5fv"]
 
 [node name="Room" type="Node2D"]
 
@@ -22,7 +27,6 @@ position = Vector2(661, 55)
 position = Vector2(-105, 264)
 
 [node name="CutsceneManager" parent="." instance=ExtResource("5_qvc4m")]
-visible = false
 
 [node name="WorldTile" type="Node" parent="."]
 
@@ -32,5 +36,20 @@ position = Vector2(-403, -229)
 [node name="Icone_Animal" parent="." instance=ExtResource("6_jn645")]
 position = Vector2(493, 379)
 
+[node name="PresurePlate" parent="." instance=ExtResource("7_7dqbv")]
+position = Vector2(-197, 23)
+
+[node name="Door" parent="." instance=ExtResource("8_ybpoa")]
+position = Vector2(169, -195)
+
+[node name="moveable_button" parent="." instance=ExtResource("9_ybpoa")]
+position = Vector2(814, -271)
+
+[node name="Wire" parent="." instance=ExtResource("10_eom3m")]
+
+[node name="wire_roll" parent="." instance=ExtResource("11_tk5fv")]
+position = Vector2(-69, -147)
+
 [connection signal="item_delivered" from="Hole" to="CutsceneManager" method="start_cutscene"]
 [connection signal="item_delivered" from="hole_animais" to="CutsceneManager" method="start_cutscene"]
+[connection signal="pressed" from="PresurePlate" to="Door" method="open_door"]

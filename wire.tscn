@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bmo0x1kdjuuo7"]
+
+[node name="Wire" type="Line2D"]

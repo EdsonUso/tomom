@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx65155fda6dp"]
+
+[ext_resource type="PackedScene" uid="uid://h8c67hl00bin" path="res://scenes/item.tscn" id="1_ns8gr"]
+[ext_resource type="Script" uid="uid://dow7xpvnig60x" path="res://src/moveable_button.gd" id="2_5tmpt"]
+
+[node name="moveable_button" instance=ExtResource("1_ns8gr")]
+script = ExtResource("2_5tmpt")
+item_id = &"moveable_button"
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.634506, 0.662978, 0.0449781, 1)

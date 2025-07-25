@@ -13,6 +13,7 @@ size = Vector2(111, 110)
 size = Vector2(148, 134)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 15
 script = ExtResource("1_70asp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -43,3 +44,5 @@ shape = SubResource("RectangleShape2D_nlxoa")
 
 [node name="PickupItem" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_5sloj")
+
+[node name="WireLinePreview" type="Line2D" parent="."]
