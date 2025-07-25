@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://da5n03856xl1a"]
+
+[ext_resource type="PackedScene" uid="uid://h8c67hl00bin" path="res://scenes/item.tscn" id="1_wqe50"]
+
+[node name="Icone_Animal" instance=ExtResource("1_wqe50")]
+item_id = &"icone_animais"
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.979932, 0.540925, 0.124364, 1)

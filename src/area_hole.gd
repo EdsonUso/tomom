@@ -1,15 +1,16 @@
 extends Area2D
 
-class_name AreaHole
+class_name AreaHole # Agora este nome não faz mais sentido, mas infelizmente a godot não atualiza referencias automaticamente
 
-@export var required_item_id: StringName = "icone_familia"
+@export var required_item_id: StringName = "icone_familia" ##O id do item 
+@export var event: String ##O nome do evento a ser disparado
+
 
 #Sinal será emitido quando o item correto for entregue
-signal item_delivered(message) #Eu te amo sinais eu te amo
+signal item_delivered(event_id, location_node) #Eu te amo sinais eu te amo
 
 func _on_body_entered(body: Player) -> void:
-	if not body.is_in_group("player"):
-		return 
+
 
 	if not is_instance_valid(body.carried_item):
 		return 
@@ -21,7 +22,7 @@ func _on_body_entered(body: Player) -> void:
 
 		print("Emitindo o sinal item_delivered!")
 
-		item_delivered.emit("Este é o item correto...")
+		item_delivered.emit(event, self)
 
 		body.carried_item.queue_free() # tapoha
 

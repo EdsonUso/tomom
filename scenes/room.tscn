@@ -530,3 +530,5 @@ offset_bottom = 40.0
 color = Color(0.362358, 1, 0.881593, 1)
 
 [connection signal="item_delivered" from="Hole" to="CutsceneManager" method="start_cutscene"]
+[connection signal="item_delivered" from="hole_animais" to="CutsceneManager" method="start_cutscene"]
+[connection signal="pressed" from="PresurePlate" to="Door" method="open_door"]

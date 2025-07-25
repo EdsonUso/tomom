@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpk8nimb57nw2"]
+
+[ext_resource type="PackedScene" uid="uid://hlv36q1qk8ri" path="res://scenes/presure_plate.tscn" id="1_oifpc"]
+[ext_resource type="Script" uid="uid://dvd3n75smkuct" path="res://resettable_button.gd" id="2_oh10e"]
+
+[node name="ResettableButton" instance=ExtResource("1_oifpc")]
+script = ExtResource("2_oh10e")

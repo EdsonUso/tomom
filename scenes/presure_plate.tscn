@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://hlv36q1qk8ri"]
+
+[ext_resource type="Script" uid="uid://bgbyrav17nop5" path="res://src/pressure_plate.gd" id="1_fpofk"]
+[ext_resource type="Texture2D" uid="uid://bbpuykvydq6v6" path="res://icon.svg" id="1_gqlow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfsdn"]
+
+[sub_resource type="Animation" id="Animation_mb115"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.541176, 0.227451, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fpofk"]
+resource_name = "press_down"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.541176, 0.227451, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_863vh"]
+_data = {
+&"RESET": SubResource("Animation_mb115"),
+&"press_down": SubResource("Animation_fpofk")
+}
+
+[node name="PresurePlate" type="Area2D"]
+script = ExtResource("1_fpofk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rfsdn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.541176, 0.227451, 1)
+texture = ExtResource("1_gqlow")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_863vh")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

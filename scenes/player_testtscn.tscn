@@ -227,3 +227,5 @@ shape = SubResource("RectangleShape2D_nlxoa")
 
 [node name="PickupItem" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_5sloj")
+
+[node name="WireLinePreview" type="Line2D" parent="."]

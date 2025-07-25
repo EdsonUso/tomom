@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vi3d7u3pbmnp"]
+
+[ext_resource type="PackedScene" uid="uid://h8c67hl00bin" path="res://scenes/item.tscn" id="1_f6pcu"]
+
+[node name="dummy_button" instance=ExtResource("1_f6pcu")]
+item_id = &"dummy_button"
