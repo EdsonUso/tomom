@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch62ajwdx7sv3"]
+
+[ext_resource type="PackedScene" uid="uid://ba3u0drgnlrqu" path="res://scenes/Hole.tscn" id="1_ccn70"]
+
+[node name="Hole" instance=ExtResource("1_ccn70")]
+required_item_id = &"icone_animais"
+event = "animal_cutscene"
+
+[node name="Sprite2D" parent="." index="1"]
+modulate = Color(0.881754, 0.539351, 1.15514e-06, 1)

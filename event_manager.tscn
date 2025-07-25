@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bln5gh6sdu00x"]
+
+[ext_resource type="Script" uid="uid://cpamn4171v26d" path="res://src/event_manager.gd" id="1_n5240"]
+
+[node name="EventManager" type="Node"]
+script = ExtResource("1_n5240")

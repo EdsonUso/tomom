@@ -10,6 +10,7 @@ radius = 61.0082
 [node name="Hole" type="Area2D"]
 collision_layer = 8
 script = ExtResource("1_vabtr")
+event = "familia_cutscene"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fbirb")
