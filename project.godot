@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="tomom"
+run/main_scene="uid://bkn4mf567llsp"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MusicManager="*res://MusicManager.tscn"
 
 [input]
 

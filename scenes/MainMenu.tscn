@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkn4mf567llsp"]
+
+[ext_resource type="Script" uid="uid://4euah1jgc47w" path="res://src/main_menu.gd" id="1_yqorp"]
+[ext_resource type="Texture2D" uid="uid://bbpuykvydq6v6" path="res://icon.svg" id="2_0ykhv"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_yqorp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 650.0
+color = Color(1, 0.839216, 0.882353, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 654.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="StartButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_0ykhv")
+texture_pressed = ExtResource("2_0ykhv")
+texture_hover = ExtResource("2_0ykhv")
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

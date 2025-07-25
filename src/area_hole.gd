@@ -17,7 +17,7 @@ func _on_body_entered(body: Player) -> void:
 	if body.carried_item.item_id == required_item_id:
 		print("Entrega correta!")
 
-		#TODO: EMITIR MUSICA DE FEEDBACK DE SUCESSO
+		$PlacementSFX.play()
 
 		print("Emitindo o sinal item_delivered!")
 

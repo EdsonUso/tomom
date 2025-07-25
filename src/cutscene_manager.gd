@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var panel: Panel = $Panel
 @onready var label: Label = $Panel/Label
 @onready var timer: Timer = Timer.new() 
-
+@onready var end_delay_timer: Timer =  Timer.new()
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
 
 var full_text: String = ""
@@ -12,6 +12,10 @@ var current_char_index: int = 0
 func _ready() -> void:
 	add_child(timer)
 	timer.timeout.connect(_on_timer_timeout)
+
+	add_child(end_delay_timer)
+	end_delay_timer.one_shot = true
+	end_delay_timer.timeout.connect(play_fade_out)
 
 
 func start_cutscene(message: String) -> void:
@@ -34,4 +38,13 @@ func _on_timer_timeout() ->  void:
 
 	else:
 		timer.stop()
+		end_delay_timer.start(3.0) #3 Segundos com o texto na tela
 		
+
+func play_fade_out() -> void:
+	animation_player.play("fade_out")
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	
+	if anim_name == "fade_out":
+		self.hide()

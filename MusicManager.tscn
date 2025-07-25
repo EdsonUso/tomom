@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0x1soeex6ttj"]
+
+[ext_resource type="AudioStream" uid="uid://pi73hspooiny" path="res://assets/audio/Adriana Calcanhotto - Fico Assim Sem Você - 8 BITS.ogg" id="1_7bbi8"]
+
+[node name="MusicManager" type="Node"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_7bbi8")
+autoplay = true

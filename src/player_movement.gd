@@ -30,6 +30,8 @@ var carried_item: AreaItem = null
 
 @onready var interaction_area:Area2D = $interaction_area
 
+@onready var pickup_item_sound: AudioStreamPlayer = $PickupItem
+
 
 func _ready() -> void:
 	await get_tree().process_frame #Espera para garantir que o shape foi inicializado
@@ -53,6 +55,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			carried_item.reparent(self)
 			carried_item.get_node("Colisor").disabled = true
 			carried_item.position = Vector2(0, -40) #Posição acima da cabeça 
+
+			pickup_item_sound.play()
 
 			print("Item capturado: ", carried_item.item_id)
 

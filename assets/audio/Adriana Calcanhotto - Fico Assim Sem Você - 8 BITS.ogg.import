@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://pi73hspooiny"
+path="res://.godot/imported/Adriana Calcanhotto - Fico Assim Sem Você - 8 BITS.ogg-6ed1cd9fba6ba1aa35228c98e5c25f7a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/Adriana Calcanhotto - Fico Assim Sem Você - 8 BITS.ogg"
+dest_files=["res://.godot/imported/Adriana Calcanhotto - Fico Assim Sem Você - 8 BITS.ogg-6ed1cd9fba6ba1aa35228c98e5c25f7a.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
