@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bcu2ct4js5kii" path="res://scenes/player_testtscn.tscn" id="2_85yof"]
 [ext_resource type="PackedScene" uid="uid://75pr6dyxsqkt" path="res://scenes/Hole.tscn" id="3_jxe34"]
-[ext_resource type="PackedScene" uid="uid://daiwmfn53ius" path="res://scenes/item.tscn" id="4_jn645"]
+[ext_resource type="PackedScene" uid="uid://c5wutlqpyhnqg" path="res://scenes/item.tscn" id="4_jn645"]
 [ext_resource type="Texture2D" uid="uid://ccp5c3g4ttqto" path="res://assets/Tilesets/Grass.png" id="5_7dqbv"]
 [ext_resource type="PackedScene" uid="uid://cbn0qmo5psm6a" path="res://scenes/Cutscene.tscn" id="5_qvc4m"]
 [ext_resource type="Texture2D" uid="uid://7oktho3obbjj" path="res://assets/Tilesets/Hills.png" id="6_ybpoa"]
@@ -521,8 +521,10 @@ position = Vector2(401, 154)
 rotation = 0.890118
 scale = Vector2(2, 2)
 
-[node name="Item" parent="." instance=ExtResource("4_jn645")]
+[node name="Item" parent="." groups=["coletaveis"] instance=ExtResource("4_jn645")]
 position = Vector2(716, 232)
+collision_layer = 4
+collision_mask = 0
 
 [node name="CutsceneManager" parent="." instance=ExtResource("5_qvc4m")]
 visible = false

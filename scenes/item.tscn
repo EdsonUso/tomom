@@ -1,23 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://daiwmfn53ius"]
+[gd_scene load_steps=4 format=3 uid="uid://c5wutlqpyhnqg"]
 
-[ext_resource type="Script" path="res://src/item.gd" id="1_s8enn"]
-[ext_resource type="Texture2D" uid="uid://cl140ttw7bry8" path="res://assets/Items/reliquias-Sheet.png" id="2_s8enn"]
+[ext_resource type="Script" uid="uid://dv72ekl03ivxh" path="res://src/item.gd" id="1_5wfrq"]
+[ext_resource type="Texture2D" uid="uid://cl140ttw7bry8" path="res://assets/Items/reliquias-Sheet.png" id="1_q2w7c"]
+[ext_resource type="PackedScene" uid="uid://dkplniovajvp3" path="res://scenes/interaction_prompt.tscn" id="3_abcde"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_r3ghi"]
-radius = 6.32456
-
-[node name="Item" type="Area2D" groups=["coletaveis"]]
-collision_layer = 4
-collision_mask = 0
-script = ExtResource("1_s8enn")
+[node name="AreaItem" type="Area2D"]
+script = ExtResource("1_5wfrq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.0901961, 1, 1)
-rotation = -0.0349066
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_s8enn")
-hframes = 37
+texture = ExtResource("1_q2w7c")
+hframes = 9
+vframes = 9
 
-[node name="Colisor" type="CollisionShape2D" parent="."]
-position = Vector2(1, -2)
-shape = SubResource("CircleShape2D_r3ghi")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="PlayerDetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea"]
+
+[node name="InteractionPrompt" parent="." instance=ExtResource("3_abcde")]
+position = Vector2(0, -20)
+
+[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_exited"]

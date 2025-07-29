@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://dr77l6ekow1ko"]
+[gd_scene load_steps=3 format=3 uid="uid://dr77l6ekow1ko"]
 
-[ext_resource type="PackedScene" uid="uid://h8c67hl00bin" path="res://scenes/item.tscn" id="1_grwig"]
+[ext_resource type="PackedScene" uid="uid://c5wutlqpyhnqg" path="res://scenes/item.tscn" id="1_grwig"]
 
-[node name="wire_roll" instance=ExtResource("1_grwig")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_r3ghi"]
+radius = 6.32456
+
+[node name="wire_roll" groups=["coletaveis"] instance=ExtResource("1_grwig")]
+collision_layer = 4
+collision_mask = 0
 item_id = &"wire_roll"
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(1, 0.0901961, 1, 1)
+rotation = -0.0349066
+scale = Vector2(0.6, 0.6)
+hframes = 37
+vframes = 1
+
+[node name="Colisor" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_r3ghi")

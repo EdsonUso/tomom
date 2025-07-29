@@ -1,56 +1,29 @@
-extends AreaItem
-
+extends AreaItem 
 class_name MovableButton
 
-signal pressed
-signal released
 
-var is_activated: bool = false
-var is_on_ground: bool = true # O botão começa no chão
-var linked_button: Node = null
+var is_movable: bool = true
+var is_on_ground: bool = true
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var area_de_clique: Area2D = $AreaDeClique
 
-func _ready():
-	# Conecta o sinal do próprio Area2D (que ele herda de Item)
-	# para detectar quando o jogador pisa nele.
-	self.body_entered.connect(_on_body_entered)
-	# self.body_exited.connect(_on_body_exited) # Para lógica de resetar
 
-func _on_body_entered(body):
-	# O botão só funciona se estiver no chão E não tiver sido ativado permanentemente.
-	if not is_on_ground or is_activated:
+func _ready() -> void:
+	super._ready() 
+	area_de_clique.input_event.connect(_on_clique_mouse)
+
+
+func _on_clique_mouse() -> void:
+	if not is_on_ground:
 		return
-	
-	if body.is_in_group("player"):
-		activate()
 
-# --- Funções Públicas ---
+	GerenciadorFios.botao_ativado(self)
 
-func activate():
-	if is_activated: return
-	is_activated = true
-	animation_player.play("press_down")
-	pressed.emit()
-	if is_instance_valid(linked_button):
-		linked_button.force_activate()
 
-func force_activate():
-	if is_activated: return
-	is_activated = true
-	animation_player.play("press_down")
-
-func set_linked_button(button_node: Node):
-	linked_button = button_node
-
-# --- Funções para o Player Chamar ---
-
-func on_pickup():
-	"""Chamada pelo jogador quando este item é pego."""
+func on_pickup() -> void:
 	is_on_ground = false
-	# Esconde a linha de conexão se houver uma
-	# (lógica de fio visual pode ser adicionada aqui)
+	# Esconde o prompt de interação.
+	interaction_prompt.hide()
 
-func on_drop():
-	"""Chamada pelo jogador quando este item é solto."""
+func on_drop() -> void:
 	is_on_ground = true

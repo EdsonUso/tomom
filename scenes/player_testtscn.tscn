@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cmyddl4c7qitv" path="res://src/player_movement.gd" id="1_70asp"]
 [ext_resource type="Texture2D" uid="uid://cqu0qmdu201ur" path="res://assets/Player/CARLA-Sheet.png" id="2_617f4"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://s30eelyl46w2" path="res://resources/new_animation_node_state_machine.tres" id="3_gpfak"]
-[ext_resource type="PackedScene" path="res://scenes/camera.tscn" id="3_w4ket"]
+[ext_resource type="PackedScene" uid="uid://bxttejet2mesc" path="res://scenes/camera.tscn" id="3_w4ket"]
 [ext_resource type="Texture2D" uid="uid://bm0jtinikpipr" path="res://particles/particula.png" id="4_617f4"]
 [ext_resource type="Material" uid="uid://fx12d0rsaocr" path="res://particles/dust_on_walk.tres" id="4_nlxoa"]
 [ext_resource type="AudioStream" uid="uid://b02dwseaic20i" path="res://assets/audio/sound5.wav" id="5_5sloj"]

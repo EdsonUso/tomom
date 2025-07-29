@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://huq24apt4fl1"]
+
+[ext_resource type="PackedScene" uid="uid://dx65155fda6dp" path="res://scenes/moveable_button.tscn" id="1_w0q4f"]
+[ext_resource type="PackedScene" uid="uid://b2e8j4jvyboat" path="res://scenes/connectable_button.tscn" id="2_lgcu6"]
+[ext_resource type="PackedScene" uid="uid://2msfnfj1exd8" path="res://scenes/Door.tscn" id="3_k5di0"]
+[ext_resource type="PackedScene" uid="uid://bcu2ct4js5kii" path="res://scenes/player_testtscn.tscn" id="4_wj0ia"]
+
+[node name="EdsonDebug" type="Node2D"]
+
+[node name="moveable_button" parent="." instance=ExtResource("1_w0q4f")]
+position = Vector2(386, 209)
+
+[node name="ConnectableButton" parent="." instance=ExtResource("2_lgcu6")]
+position = Vector2(107, 164)
+alvos = Array[NodePath]([NodePath("../Door"), NodePath("../Door2")])
+ativar_uma_vez = false
+
+[node name="Door" parent="." instance=ExtResource("3_k5di0")]
+position = Vector2(264, 53)
+
+[node name="Door2" parent="." instance=ExtResource("3_k5di0")]
+position = Vector2(478, 44)
+
+[node name="ConnectableButton2" parent="." instance=ExtResource("2_lgcu6")]
+alvos = Array[NodePath]([NodePath("../Door3")])
+
+[node name="Player" parent="." instance=ExtResource("4_wj0ia")]
+position = Vector2(283, 187)
+speed = 300.0
+
+[node name="Door3" parent="." instance=ExtResource("3_k5di0")]
+position = Vector2(328, 299)

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 MusicManager="*res://MusicManager.tscn"
 EventManager="*res://event_manager.tscn"
+GerenciadorFios="*res://autoload/gerenciador_fios.gd"
 
 [global_group]
 
@@ -78,4 +79,5 @@ toggle_wiring_mode={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_repeat=1
 environment/defaults/default_clear_color=Color(0.481005, 0.681906, 1, 1)

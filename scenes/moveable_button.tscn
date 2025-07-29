@@ -1,11 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx65155fda6dp"]
+[gd_scene load_steps=8 format=3 uid="uid://dx65155fda6dp"]
 
-[ext_resource type="PackedScene" uid="uid://h8c67hl00bin" path="res://scenes/item.tscn" id="1_ns8gr"]
+[ext_resource type="PackedScene" uid="uid://c5wutlqpyhnqg" path="res://scenes/item.tscn" id="1_ns8gr"]
 [ext_resource type="Script" uid="uid://dow7xpvnig60x" path="res://src/moveable_button.gd" id="2_5tmpt"]
 
-[node name="moveable_button" instance=ExtResource("1_ns8gr")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_r3ghi"]
+radius = 6.32456
+
+[sub_resource type="Animation" id="Animation_0yddr"]
+resource_name = "press_down"
+
+[sub_resource type="Animation" id="Animation_gbh6b"]
+resource_name = "press_up"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hhsi1"]
+_data = {
+&"press_down": SubResource("Animation_0yddr"),
+&"press_up": SubResource("Animation_gbh6b")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yddr"]
+
+[node name="moveable_button" groups=["coletaveis"] instance=ExtResource("1_ns8gr")]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("2_5tmpt")
 item_id = &"moveable_button"
 
 [node name="Sprite2D" parent="." index="0"]
 modulate = Color(0.634506, 0.662978, 0.0449781, 1)
+rotation = -0.0349066
+scale = Vector2(0.6, 0.6)
+hframes = 37
+vframes = 1
+
+[node name="Colisor" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_r3ghi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+&"": SubResource("AnimationLibrary_hhsi1")
+}
+
+[node name="AreaDeClique" type="Area2D" parent="." index="6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeClique" index="0"]
+position = Vector2(1, -1)
+rotation = 0.0179014
+shape = SubResource("RectangleShape2D_0yddr")
+debug_color = Color(0.898563, 0.150426, 0.678283, 0.42)

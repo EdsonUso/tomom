@@ -4,9 +4,29 @@ extends StaticBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer 
 @onready var colisor: CollisionShape2D = $CollisionShape2D
 
-var is_open: bool = false
+##Quantos botões referenciados a esta porta precisam estar ativados para que ela possa abrir
+@export var ativacoes_necessarias: int = 1
 
-func open_door() -> void:
+var is_open: bool = false
+var ativacoes_atuais: int = 0
+
+##Aumenta a quantidade de ativações feitas
+func receber_ativacao() -> void:
+	ativacoes_atuais += 1
+
+	if ativacoes_atuais == ativacoes_necessarias and not is_open:
+		_open_door()
+
+
+func receber_desativacao() -> void:
+	ativacoes_atuais = max(0, ativacoes_atuais -1)
+	print("Porta recebeu desativação.")
+
+	if ativacoes_atuais < ativacoes_necessarias:
+		_close_door()
+
+
+func _open_door() -> void:
 	if animation_player.is_playing():
 		return
 
@@ -15,9 +35,10 @@ func open_door() -> void:
 	is_open = true
 
 
-func close_door() -> void:
+func _close_door() -> void:
 	if not is_open: 
 		return 
-	is_open = false
 
+	is_open = false
 	animation_player.play("close")
+	colisor.disabled = false;

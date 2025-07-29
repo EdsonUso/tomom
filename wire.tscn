@@ -1,3 +1,17 @@
-[gd_scene load_steps=0 format=3 uid="uid://bmo0x1kdjuuo7"]
+[gd_scene load_steps=4 format=3 uid="uid://bmo0x1kdjuuo7"]
 
-[node name="Wire" type="Line2D"]
+[ext_resource type="Script" uid="uid://b3bt6kouq6o2b" path="res://src/wire.gd" id="1_bdjww"]
+[ext_resource type="Texture2D" uid="uid://bbpuykvydq6v6" path="res://icon.svg" id="2_qj5kq"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bdjww"]
+
+[node name="Wire" type="Node2D"]
+script = ExtResource("1_bdjww")
+
+[node name="Line2D" type="Line2D" parent="."]
+material = SubResource("CanvasItemMaterial_bdjww")
+points = PackedVector2Array(-2, 0, 1, -1)
+width = 1.0
+default_color = Color(0.198866, 0.593241, 0.523311, 1)
+texture = ExtResource("2_qj5kq")
+texture_mode = 1
